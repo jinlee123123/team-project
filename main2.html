@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Project</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link href="main2.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <header>
+        <nav id="navbar">
+            <div class="menu">
+                <div>
+                    <ul>
+                        <li><a href="#">Apple</a></li>
+                        <li><a href="#">Banana</a></li>
+                        <li><a href="#">Cola</a></li>
+                    </ul>
+                    <h1>Art-Market Logo</h1>
+                    <ul>
+                        <li><a href="#">Store</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul> 
+                    <ul class="social-media">
+                        <li><a href="#">
+                            <i class="fab fa-facebook"></i>
+                        </a></li>
+                        <li><a href="#">
+                            <i class="fab fa-instagram"></i>
+                        </a></li>
+                        <li><a href="#">
+                            <i class="fab fa-twitter"></i>
+                        </a></li>
+                        <li><a href="#">
+                            <i class="fab fa-youtube"></i>
+                        </a></li>
+                    </ul>                      
+                </div>
+            </div>
+            <div class="container">
+                <a href="#" class="brand">Art-Market</a>
+                <div class="container-inner">
+                    <ul>
+                        <li><a href="#">Store</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                    <div class="log">
+                        <ul><li><a href="#"><i class="fa-solid fa-user"></a></i></li>
+                            <li><a href="#"><i class="fa-solid fa-cart-plus"></a></i></li>
+                        </ul>
+
+                    </div>
+                </div>
+                
+                <i class="fas fa-bars" id="menu-btn"></i>
+            </div> 
+        </nav>
+    </header>
+    <main>
+        <div class="banner">
+            <div class="banner-container">
+                <p>첫 주문 무료배송(배너 레이아웃)</p>
+                <i class="fa-solid fa-arrow-left banner-btn1" type="button"></i>
+                <i class="fa-solid fa-arrow-right banner-btn2" type="button"></i>
+            </div>
+            
+        </div>
+
+        <div class="main-top">
+            <hr>
+            <h4>Category</h4>
+            <p>다양한 청년·신진화가의 작품을 만나보세요.</p>
+        </div>
+        <div class="grid-container">
+            <div>
+                <img src="/images/m_862956_May.jpeg"  >
+            </div>
+            <div>
+                <img src="/images/m_130327_routine.jpeg" alt="">
+            </div>
+            <div>
+                <img src="/images/m_853099_Greek.jpeg" alt="">
+            </div>
+            <div>
+                <img src="/images/m_861394_card.jpeg" alt="">
+            </div>
+            <div>
+                <img src="/images/m_863026_Jubilee.jpeg" alt="">
+            </div>
+            <div>
+                <img src="/images/m_863382_Faruk.jpeg" alt="">
+            </div>
+        </div>
+        
+        
+    </main>
+    <footer>
+        <div class="footer-container">
+            <h5>ArtMarket Inc.</h5>
+            <p>대표:송편 사업자등록번호:0012-123-12345</p>
+            <p>Tel: +82 02 123 456 / 09:00 am ~ 18:00pm</p>
+            <p>E mail: ArtMarket@naver.com</p>
+            <br>
+            <p>이용약관 &nbsp;&nbsp; | &nbsp;&nbsp; 개인정보처리방침</p>
+        </div>
+    </footer>
+    
+
+
+    <script   src="https://code.jquery.com/jquery-3.6.1.min.js"   integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="   crossorigin="anonymous"></script>
+    <script>
+        const menBtn = document.getElementById('menu-btn');
+        const navbar = document.getElementById('navbar')
+        const menu = document.querySelector('.menu')
+        const offset = 50;
+
+        function change(){
+            document.getElementById("banner-image").src="./images/m_862956_May.jpeg"
+        }
+        
+        //메뉴 버튼 클릭시 메뉴구현이벤트
+
+        menBtn.addEventListener('click',()=>{
+            menu.classList.toggle('menu-open');
+            menu.classList.toggle('')
+        });
+
+        //스크롤시 메뉴 이벤트
+        window.addEventListener("scroll", ()=>{
+            if (pageYOffset > offset) {
+                navbar.classList.add('navbar-active');
+            } else{ 
+                navbar.classList.remove('navbar-active');
+            } 
+        })
+
+    </script>
+    
+</body>
+</html>
