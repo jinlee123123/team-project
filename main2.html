@@ -10,6 +10,24 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
+    
+
+    <div class="black-bg">
+        <div class="white-bg">
+          <h4>로그인하세요</h4>
+          <form action="suc.html">
+                <div class="my-3">
+                  <input type="text" class="form-control" id="email">
+                 </div>
+                 <div class="my-3">
+                   <input type="password" class="form-control" id="psw">
+                 </div>
+                 <button type="submit" class="btn btn-primary">전송</button>
+                 <button type="button" class="btn btn-danger" id="close">닫기</button>
+          </form>
+        
+        </div>
+      </div> 
     <header>
         <nav id="navbar">
             <div class="menu">
@@ -64,12 +82,30 @@
     <main>
         <div class="banner">
             <div class="banner-container">
-                <p>첫 주문 무료배송(배너 레이아웃)</p>
-                <i class="fa-solid fa-arrow-left banner-btn1" type="button"></i>
-                <i class="fa-solid fa-arrow-right banner-btn2" type="button"></i>
+                <div class="slide-box">
+                    <img src="/images/banner1.png" alt="">
+                </div>
+                <div class="slide-box">
+                    <img src="/images/banner2.png" alt="">
+                </div>
+                <div class="slide-box">
+                    <img src="/images/banner3.png" alt="">
+                </div>
+                <div class="slide-box">
+                    <img src="/images/banner4.png" alt="">
+                </div>
+                <div class="slide-box">
+                    <img src="/images/banner5.png" alt="">
+                </div>
             </div>
-            
         </div>
+            <button class="slide-pre"><</button>
+            <button class="slide-1">1</button>
+            <button class="slide-2">2</button>
+            <button class="slide-3">3</button>
+            <button class="slide-4">4</button>
+            <button class="slide-5">5</button>
+            <button class="slide-next">></button>
 
         <div class="main-top">
             <hr>
@@ -96,6 +132,14 @@
                 <img src="/images/m_863382_Faruk.jpeg" alt="">
             </div>
         </div>
+        <div class="alert alert-danger del">
+            <span id="num">5</span>초이내구매시 사은품 증정
+        </div>
+        <button type="submit" class="btn btn-primary sex">전송</button> 
+
+        <div class="lorem" style="width: 200px; height: 100px; overflow-y: scroll">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae voluptas voluptatum minus praesentium fugit debitis at, laborum ipsa itaque placeat sit, excepturi eius. Nostrum perspiciatis, eligendi quae consectetur praesentium exercitationem.
+          </div> 
         
         
     </main>
@@ -110,14 +154,121 @@
         </div>
     </footer>
     
-
+    
 
     <script   src="https://code.jquery.com/jquery-3.6.1.min.js"   integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="   crossorigin="anonymous"></script>
     <script>
-        const menBtn = document.getElementById('menu-btn');
+
+        $('.lorem').on('scroll',()=>{
+            var sc
+        })
+        
+        //배너
+        var banner = 1;
+
+        $('.slide-1').on('click',()=>{
+            $('.banner-container').css('transform','translateX(0vW)');
+            banner = 1;
+        })
+        $('.slide-2').on('click',()=>{
+            $('.banner-container').css('transform', 'translateX(-100vW)')
+            banner = 2;
+        })
+        $('.slide-3').on('click',()=>{
+            $('.banner-container').css('transform', 'translateX(-200vW)')
+            banner = 3;
+        })
+        $('.slide-4').on('click',()=>{
+            $('.banner-container').css('transform', 'translateX(-300vW)')
+            banner = 4;
+        })
+        $('.slide-5').on('click',()=>{
+            $('.banner-container').css('transform', 'translateX(-400vW)')
+            banner = 5;
+        })
+        $('.slide-pre').on('click',()=>{
+            if(banner==1){
+                $('.banner-container').css('transform', 'translateX(0vW)')
+            }else{
+                $('.banner-container').css('transform', 'translateX(-'+(banner-2)+'00vW)')
+                banner--;
+            }    
+        })
+        
+        
+
+        $('.slide-next').on('click',()=>{
+            if(banner==5){
+                $('.banner-container').css('transform', 'translateX(-400vW)')
+            }else{
+                $('.banner-container').css('transform', 'translateX(-'+banner+'00vW)')
+                banner++;
+            }    
+        })
+
+    
+        
+        $('.fa-user').on('click', ()=>{
+            $('.black-bg').addClass('show-modal')
+        })
+        $('#close').on('click', ()=>{
+            $('.black-bg').removeClass('show-modal')
+        })
+        
+    //     $('form').on('submit', function(e){
+    //         var inputEmail = document.getElementById('email').value
+
+    //     if (inputEmail == '') {
+    //         alert('아이디 입력하쇼');
+    //         e.preventDefault();     
+    //     }
+    // }
+
+        
+
+        $('form').on('submit',(e)=>{
+            
+            var psw = document.getElementById('psw').value;
+            
+            if(psw == ''){
+                alert('비밀번호 입력좀요~');
+                e.preventDefault();
+            }else if(/[A-Z]/.test(psw)==false){
+                alert('대문자가 없네요~');
+                e.preventDefault();
+            }
+        })
+        
+        var count = 0;
+
+        $('.sex').on('click' , ()=>{
+            count++;
+            if( count%2==1){
+        $('.sex').html('송전');
+        } else{
+            $('.sex').html('전송');
+        }
+        })
+        var time = 5;
+
+        setInterval(()=>{
+            time-=1;
+            if(time>=0){
+                document.querySelector('#num').innerHTML =time;
+            }
+
+        } , 1000);
+
+        setTimeout(()=>{
+            $('.del').hide();
+        }, 5000 )
+        
+        
+        
         const navbar = document.getElementById('navbar')
-        const menu = document.querySelector('.menu')
         const offset = 50;
+        
+        
 
         function change(){
             document.getElementById("banner-image").src="./images/m_862956_May.jpeg"
@@ -125,9 +276,10 @@
         
         //메뉴 버튼 클릭시 메뉴구현이벤트
 
-        menBtn.addEventListener('click',()=>{
-            menu.classList.toggle('menu-open');
-            menu.classList.toggle('')
+        
+        $('#menu-btn').on('click',()=>{
+            $('.menu').toggleClass('menu-open');
+            
         });
 
         //스크롤시 메뉴 이벤트
